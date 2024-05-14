@@ -1,4 +1,4 @@
-# 30 Days Rust Challenge - By [Your Name]
+# 30 Days Rust Challenge - By Sulav Baral
 
 Welcome to my 30 Days Rust Challenge! 🦀
 
