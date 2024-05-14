@@ -54,5 +54,53 @@
 
    So this is how to create a very basic project using the cargo package manager and using it to build and run it. Cargo makes life easier by handling much of the complexity of creating and running a project in rust
 
+4. ###### Guessing game from the Rust Programming Book
+
+Below is the code snippet for the guessing game from the Rust Programming Book. The code is very simple and easy to understand. The code is also available in the src directory of the day-1 directory.
+
+```rust
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+
+fn main() {
+    println!("Guess the number!");
+
+    let secret_number = rand::thread_rng().gen_range(1..101);
+
+    loop {
+        println!("Please input your guess.");
+
+        let mut guess = String::new();
+
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
+
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+
+        println!("You guessed: {}", guess);
+
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
+        }
+    }
+}
+```
+
+###### Running the program
+
+```bash
+cargo run
+```
+
 
 
